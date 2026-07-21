@@ -1,10 +1,10 @@
 import { MaterialIcon } from "@/components/MaterialIcon";
 
 const items = [
-  { icon: "groups", label: "Community", href: "#" },
-  { icon: "filter_list", label: "Filter", href: "#" },
-  { icon: "volunteer_activism", label: "Gratitude", href: "#" },
-  { icon: "contact_support", label: "Support", href: "#" },
+  { icon: "groups", label: "Сообщество", href: "#" },
+  { icon: "filter_list", label: "Фильтр", href: "#" },
+  { icon: "volunteer_activism", label: "Благодарность", href: "#" },
+  { icon: "contact_support", label: "Поддержка", href: "#" },
 ] as const;
 
 export function BottomNav() {

@@ -12,15 +12,15 @@ type AdvicePreviewCardProps = {
 
 export function AdvicePreviewCard({
   title,
-  category = "Natural Remedy",
-  summary = "Learn how to use gentle coconut oil, oat baths, and breathability to soothe your baby's skin naturally and effectively.",
+  category = "Натуральное средство",
+  summary = "Кокосовое масло, овсяные ванны и воздух — мягкие способы успокоить кожу малыша дома.",
 }: AdvicePreviewCardProps) {
   return (
     <article className="coral-shadow overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest transition-all duration-300 hover:scale-[1.01]">
       <div className="relative h-48 w-full">
         <Image
           src={ADVICE_IMAGE}
-          alt="Soft warm scene with baby care essentials in peach and cream tones"
+          alt="Тёплая сцена с средствами для ухода за малышом в персиковых и кремовых тонах"
           fill
           className="object-cover"
           sizes="(max-width: 576px) 100vw, 576px"
@@ -38,7 +38,7 @@ export function AdvicePreviewCard({
         <p className="line-clamp-2 text-sm text-on-surface-variant">{summary}</p>
         <div className="flex items-center gap-2 font-body text-label-md text-primary">
           <MaterialIcon name="groups" className="text-sm" />
-          <span>From the community</span>
+          <span>От сообщества</span>
         </div>
       </div>
     </article>

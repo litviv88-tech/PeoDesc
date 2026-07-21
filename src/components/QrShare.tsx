@@ -33,9 +33,9 @@ export function QrShare() {
         </div>
       </div>
       <div className="space-y-1">
-        <h4 className="font-body text-label-md text-on-surface">Quick QR Share</h4>
+        <h4 className="font-body text-label-md text-on-surface">Быстрый QR-код</h4>
         <p className="max-w-[160px] text-xs text-on-surface-variant">
-          Scan with any phone camera to view this advice instantly.
+          Отсканируйте камерой телефона, чтобы сразу открыть этот совет.
         </p>
       </div>
       <button
@@ -43,7 +43,7 @@ export function QrShare() {
         className="flex items-center gap-1 font-body text-label-md text-primary hover:underline"
       >
         <MaterialIcon name="download" className="text-sm" />
-        <span>Save Image</span>
+        <span>Сохранить изображение</span>
       </button>
     </div>
   );

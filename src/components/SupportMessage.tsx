@@ -7,10 +7,10 @@ export function SupportMessage() {
         <MaterialIcon name="volunteer_activism" />
       </div>
       <div>
-        <h4 className="font-body text-label-md text-on-primary-container">Knowledge is Care</h4>
+        <h4 className="font-body text-label-md text-on-primary-container">Знание — это забота</h4>
         <p className="mt-1 text-sm leading-relaxed text-on-surface-variant">
-          By sharing PeoDesc insights, you help build a community grounded in evidence and empathy.
-          Thank you for being a part of this journey.
+          Делясь советами PeoDesc, вы помогаете строить сообщество, основанное на опыте и внимании к
+          друг другу. Спасибо, что вы с нами.
         </p>
       </div>
     </div>

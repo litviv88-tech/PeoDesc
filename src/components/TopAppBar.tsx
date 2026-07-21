@@ -8,7 +8,7 @@ export function TopAppBar() {
           <button
             type="button"
             className="rounded-full p-2 transition-colors duration-150 hover:bg-surface-variant/20 active:scale-95"
-            aria-label="Back"
+            aria-label="Назад"
           >
             <MaterialIcon name="arrow_back" className="text-primary" />
           </button>
@@ -20,7 +20,7 @@ export function TopAppBar() {
           <button
             type="button"
             className="rounded-full p-2 transition-colors duration-150 hover:bg-surface-variant/20 active:scale-95"
-            aria-label="Search"
+            aria-label="Поиск"
           >
             <MaterialIcon name="search" className="text-primary" />
           </button>

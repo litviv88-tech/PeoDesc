@@ -38,7 +38,7 @@ export function CopyLinkField({ url }: CopyLinkFieldProps) {
   return (
     <div className="space-y-4 rounded-xl border border-outline-variant/30 bg-white p-6">
       <label htmlFor="share-link" className="font-body text-label-md text-on-surface-variant">
-        Direct Link
+        Прямая ссылка
       </label>
       <div className="relative flex items-center">
         <input
@@ -55,13 +55,13 @@ export function CopyLinkField({ url }: CopyLinkFieldProps) {
             copied ? "bg-secondary" : "bg-primary hover:bg-primary/90"
           }`}
         >
-          {copied ? "Copied!" : "Copy"}
+          {copied ? "Скопировано!" : "Копировать"}
         </button>
       </div>
       {copied ? (
         <div className="flex items-center gap-2 font-body text-label-sm text-secondary">
           <MaterialIcon name="check_circle" className="text-sm" />
-          <span>Link copied to clipboard</span>
+          <span>Ссылка скопирована в буфер обмена</span>
         </div>
       ) : null}
     </div>

@@ -15,7 +15,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PeoDesc - Share Advice",
+  title: "PeoDesc — поделиться советом",
   description: "Сообщество практических советов для родителей",
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="ru"
       className={`light ${literata.variable} ${plusJakarta.variable} h-full antialiased`}
     >
       <head>

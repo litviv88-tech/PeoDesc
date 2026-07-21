@@ -11,7 +11,7 @@ export function ShareSocial() {
   return (
     <div className="rounded-xl border border-outline-variant/30 bg-white p-6">
       <label className="mb-4 block font-body text-label-md text-on-surface-variant">
-        Share via Social
+        Поделиться в соцсетях
       </label>
       <div className="flex items-center justify-between gap-2">
         {socials.map((item) => (

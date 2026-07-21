@@ -11,10 +11,10 @@ export const dynamic = "force-dynamic";
 
 const FALLBACK_ADVICE = {
   id: "r1029",
-  title: "Natural remedies for mild diaper rash",
-  category: "Natural Remedy",
+  title: "Натуральные средства при лёгкой опрелости",
+  category: "Натуральное средство",
   summary:
-    "Learn how to use gentle coconut oil, oat baths, and breathability to soothe your baby's skin naturally and effectively.",
+    "Кокосовое масло, овсяные ванны и воздух — мягкие способы успокоить кожу малыша дома.",
 };
 
 async function loadFeaturedAdvice() {
@@ -28,9 +28,9 @@ async function loadFeaturedAdvice() {
       advice: {
         id: note.id,
         title: note.title,
-        category: "Parent Tip",
+        category: "Совет родителям",
         summary:
-          "A practical recommendation from the PeoDesc community — share it with someone who needs gentle, evidence-minded support today.",
+          "Практическая рекомендация от сообщества PeoDesc — поделитесь с тем, кому сейчас нужна мягкая и вдумчивая поддержка.",
       },
       fromDb: true,
     };
@@ -55,10 +55,10 @@ export default async function Home() {
         <div className="mx-auto w-full max-w-xl space-y-lg">
           <div className="space-y-2 text-center">
             <h2 className="font-headline text-headline-lg-mobile text-primary md:text-headline-lg">
-              Share Wisdom
+              Поделитесь советом
             </h2>
             <p className="font-body text-body-md text-on-surface-variant">
-              Empower others by sharing this nurturing advice.
+              Помогите другим, поделившись этим заботливым советом.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export default async function Home() {
               className="rounded-xl border border-primary-container/30 bg-primary-container/10 px-4 py-3 text-sm text-on-primary-container"
               role="status"
             >
-              Showing sample advice — database is temporarily unavailable.
+              Показан пример совета — база данных временно недоступна.
             </div>
           ) : null}
 

@@ -49,7 +49,7 @@ export default async function Home() {
       <TopAppBar />
 
       <main className="page-enter mx-auto min-h-[calc(100vh-140px)] w-full max-w-container-max px-gutter py-lg">
-        <div className="mx-auto max-w-xl space-y-lg">
+        <div className="mx-auto w-full max-w-[36rem] space-y-lg">
           <div className="space-y-2 text-center">
             <h2 className="font-headline text-headline-lg-mobile text-primary md:text-headline-lg">
               Share Wisdom

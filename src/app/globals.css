@@ -58,13 +58,9 @@
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
 
-  --spacing-xs: 4px;
   --spacing-base: 8px;
-  --spacing-sm: 12px;
-  --spacing-md: 24px;
   --spacing-gutter: 24px;
   --spacing-lg: 48px;
-  --spacing-xl: 80px;
   --spacing-container-max: 1280px;
 
   --font-headline: var(--font-literata), ui-serif, Georgia, serif;

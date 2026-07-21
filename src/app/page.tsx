@@ -26,7 +26,7 @@ async function loadFeaturedAdvice() {
     return {
       ok: true as const,
       advice: {
-        id: note.id.slice(0, 8),
+        id: note.id,
         title: note.title,
         category: "Parent Tip",
         summary:
@@ -42,14 +42,17 @@ async function loadFeaturedAdvice() {
 
 export default async function Home() {
   const { advice, ok } = await loadFeaturedAdvice();
-  const shareUrl = `https://peodesc.app/advice/${advice.id}`;
+  const appOrigin =
+    process.env.NEXT_PUBLIC_APP_URL ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+  const shareUrl = `${appOrigin}/?advice=${advice.id}`;
 
   return (
     <div className="flex min-h-full flex-col pb-24">
       <TopAppBar />
 
       <main className="page-enter mx-auto min-h-[calc(100vh-140px)] w-full max-w-container-max px-gutter py-lg">
-        <div className="mx-auto w-full max-w-[36rem] space-y-lg">
+        <div className="mx-auto w-full max-w-xl space-y-lg">
           <div className="space-y-2 text-center">
             <h2 className="font-headline text-headline-lg-mobile text-primary md:text-headline-lg">
               Share Wisdom

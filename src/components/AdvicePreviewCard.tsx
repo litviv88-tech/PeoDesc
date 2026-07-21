@@ -37,8 +37,8 @@ export function AdvicePreviewCard({
       <div className="space-y-4 p-6">
         <p className="line-clamp-2 text-sm text-on-surface-variant">{summary}</p>
         <div className="flex items-center gap-2 font-body text-label-md text-primary">
-          <MaterialIcon name="verified" className="text-sm" filled />
-          <span>Medically Reviewed</span>
+          <MaterialIcon name="groups" className="text-sm" />
+          <span>From the community</span>
         </div>
       </div>
     </article>

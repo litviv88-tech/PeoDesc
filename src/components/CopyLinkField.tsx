@@ -12,17 +12,24 @@ export function CopyLinkField({ url }: CopyLinkFieldProps) {
   const [, startTransition] = useTransition();
 
   async function handleCopy() {
+    let copiedOk = false;
     try {
       await navigator.clipboard.writeText(url);
+      copiedOk = true;
     } catch {
-      // Fallback for restricted clipboard contexts
-      const input = document.createElement("input");
-      input.value = url;
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand("copy");
-      document.body.removeChild(input);
+      try {
+        const input = document.createElement("input");
+        input.value = url;
+        document.body.appendChild(input);
+        input.select();
+        copiedOk = document.execCommand("copy");
+        document.body.removeChild(input);
+      } catch {
+        copiedOk = false;
+      }
     }
+
+    if (!copiedOk) return;
 
     startTransition(() => setCopied(true));
     window.setTimeout(() => setCopied(false), 3000);
@@ -30,9 +37,12 @@ export function CopyLinkField({ url }: CopyLinkFieldProps) {
 
   return (
     <div className="space-y-4 rounded-xl border border-outline-variant/30 bg-white p-6">
-      <label className="font-body text-label-md text-on-surface-variant">Direct Link</label>
+      <label htmlFor="share-link" className="font-body text-label-md text-on-surface-variant">
+        Direct Link
+      </label>
       <div className="relative flex items-center">
         <input
+          id="share-link"
           className="w-full rounded-lg border-none bg-surface-container-low px-4 py-3 text-sm text-on-surface-variant focus:ring-2 focus:ring-primary-container focus:outline-none"
           readOnly
           type="text"

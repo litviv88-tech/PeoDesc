@@ -25,21 +25,7 @@ async function loadFeaturedAdvice() {
       include: { category: true },
     });
     if (!note) {
-      const anyNote = await prisma.note.findFirst({
-        orderBy: { createdAt: "desc" },
-        include: { category: true },
-      });
-      if (!anyNote) return { ok: true as const, advice: FALLBACK_ADVICE, fromDb: false };
-      return {
-        ok: true as const,
-        advice: {
-          id: anyNote.id,
-          title: anyNote.title,
-          category: anyNote.category.category,
-          summary: anyNote.description ?? anyNote.content,
-        },
-        fromDb: true,
-      };
+      return { ok: true as const, advice: FALLBACK_ADVICE, fromDb: false };
     }
     return {
       ok: true as const,

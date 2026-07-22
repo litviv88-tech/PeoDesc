@@ -7,8 +7,77 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Note {
-  id        String   @id @default(uuid()) @db.Uuid
-  title     String
+enum Visibility {
+  PRIVATE
+  PUBLIC
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
   createdAt DateTime @default(now())
+
+  notes Note[]
+  votes Vote[]
+}
+
+model Category {
+  id       String @id @default(cuid())
+  category String @unique
+
+  notes Note[]
+}
+
+model Note {
+  id          String     @id @default(cuid())
+  ownerId     String
+  title       String
+  content     String
+  description String?
+  categoryId  String
+  visibility  Visibility @default(PRIVATE)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  publishedAt DateTime?
+
+  owner    User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  votes    Vote[]
+  tags     NoteTag[]
+
+  @@index([ownerId, updatedAt])
+  @@index([visibility, createdAt])
+}
+
+model Tag {
+  id   String @id @default(cuid())
+  name String @unique
+
+  notes NoteTag[]
+}
+
+model NoteTag {
+  noteId String
+  tagId  String
+
+  note Note @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  tag  Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([noteId, tagId])
+}
+
+model Vote {
+  id        String   @id @default(cuid())
+  userId    String
+  noteId    String
+  value     Int      @default(1)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  note Note @relation(fields: [noteId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, noteId])
+  @@index([noteId])
+  @@index([userId])
 }

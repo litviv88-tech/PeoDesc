@@ -12,6 +12,8 @@
     "db:migrate:deploy": "prisma migrate deploy",
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
+    "db:verify": "tsx prisma/verify-domain.ts",
+    "view-db": "tsx view-db/server.ts",
     "postinstall": "prisma generate"
   },
   "prisma": {

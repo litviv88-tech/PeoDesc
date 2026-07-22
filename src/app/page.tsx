@@ -20,17 +20,20 @@ const FALLBACK_ADVICE = {
 async function loadFeaturedAdvice() {
   try {
     const note = await prisma.note.findFirst({
+      where: { visibility: "PUBLIC" },
       orderBy: { createdAt: "desc" },
+      include: { category: true },
     });
-    if (!note) return { ok: true as const, advice: FALLBACK_ADVICE, fromDb: false };
+    if (!note) {
+      return { ok: true as const, advice: FALLBACK_ADVICE, fromDb: false };
+    }
     return {
       ok: true as const,
       advice: {
         id: note.id,
         title: note.title,
-        category: "Совет родителям",
-        summary:
-          "Практическая рекомендация от сообщества PeoDesc — поделитесь с тем, кому сейчас нужна мягкая и вдумчивая поддержка.",
+        category: note.category.category,
+        summary: note.description ?? note.content,
       },
       fromDb: true,
     };

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>view-db — PeoDesc</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1>view-db</h1>
+        <p class="muted">Просмотр и CRUD таблиц PostgreSQL</p>
+      </header>
+
+      <section id="screen-connect" class="card">
+        <h2>Выбор базы данных</h2>
+        <div class="targets" id="targets"></div>
+        <button id="btn-connect" class="btn primary" disabled>Подключиться</button>
+        <p id="connect-error" class="error" hidden></p>
+      </section>
+
+      <section id="screen-tables" class="card" hidden>
+        <div class="row between">
+          <h2>Таблицы (<span id="current-target-label"></span>)</h2>
+          <button id="btn-back-db" class="btn ghost">Сменить БД</button>
+        </div>
+        <ul id="tables-list" class="tables-list"></ul>
+      </section>
+
+      <section id="screen-table" class="card" hidden>
+        <div class="row between wrap">
+          <h2>Таблица: <span id="table-name"></span></h2>
+          <div class="row gap">
+            <button id="btn-back-tables" class="btn ghost">К списку таблиц</button>
+            <button id="btn-create" class="btn primary">Создать</button>
+          </div>
+        </div>
+
+        <div class="row between wrap pager">
+          <span id="pager-info" class="muted"></span>
+          <div class="row gap">
+            <button id="btn-prev" class="btn">Назад</button>
+            <button id="btn-next" class="btn">Вперёд</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="data-table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p id="table-error" class="error" hidden></p>
+      </section>
+    </div>
+
+    <dialog id="row-dialog">
+      <form method="dialog" id="row-form" class="dialog-form">
+        <h3 id="dialog-title">Запись</h3>
+        <div id="form-fields"></div>
+        <div class="row gap end">
+          <button type="button" id="btn-cancel" class="btn ghost">Отмена</button>
+          <button type="submit" class="btn primary">Сохранить</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
